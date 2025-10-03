@@ -12,7 +12,10 @@ const createPost = async (req: Request) => {
 };
 
 const getAllPosts = async () => {
-  const posts = await prisma.post.findMany({ include: { author: true } });
+  const posts = await prisma.post.findMany({
+    orderBy: { createdAt: "desc" },
+    include: { author: true },
+  });
   return posts;
 };
 
