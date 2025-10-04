@@ -2,9 +2,15 @@ import { Request } from "express";
 import { prisma } from "../../config";
 
 const createPost = async (req: Request) => {
-  const data = req.body;
+  const { title, content, slug } = req.body;
   const post = await prisma.post.create({
-    data,
+    data: {
+      title,
+      slug,
+      content,
+      authorId: Number(req.body.authorId),
+      imageUrl: req?.file?.path,
+    },
     include: { author: true },
   });
 
