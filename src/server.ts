@@ -2,6 +2,7 @@ import app from "./app";
 import "dotenv/config";
 import { Server } from "http";
 import { prisma } from "./app/config";
+import { seedAdmin } from "./app/utils/seedAdmin";
 
 const port = process.env.PORT;
 let server: Server;
@@ -22,6 +23,7 @@ const startServer = async () => {
 (async () => {
   await startServer();
   //   await seedAdmin();
+  await seedAdmin();
 })();
 
 process.on("unhandledRejection", (err) => {
