@@ -1,11 +1,21 @@
 import express, { NextFunction, Request, Response } from "express";
 import { postRoute } from "./app/modules/posts/posts.route";
 import { userRoute } from "./app/modules/users/users.routes";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: [
+      `http://localhost:3000`,
+      "https://level-2-batch-5-assignment-07-front.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("*** Hello, World! Api is running ***");
