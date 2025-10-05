@@ -59,23 +59,21 @@ What you need to install before setting up the project.
 3.  **Set up environment variables:**
     Create a `.env` file in the root directory of the project and add the following:
 
-    ```
+```
 
-    ```
+    PORT=5000
 
-PORT=5000
+    # neon postgres
 
-# neon postgres
+    DATABASE_URL= put your postgreSQL database url neon/supabase
 
-DATABASE_URL= put your postgreSQL database url neon/supabase
+    # cloudinary
 
-# cloudinary
+    CLOUD_NAME= insert your cloudinary cloud name
+    API_KEY= insert your cloudinary api key
+    API_SECRET= insert your cloudinary api secret
 
-CLOUD_NAME= insert your cloudinary cloud name
-API_KEY= insert your cloudinary api key
-API_SECRET= insert your cloudinary api secret
-
-    ```
+```
 
 \_Make sure to replace placeholders like `your_database_connection_string` with your actual values.
 
